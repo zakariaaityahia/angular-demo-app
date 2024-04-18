@@ -25,4 +25,21 @@ export class AppComponent {
     this.currentRoute = "products";
     this.router.navigateByUrl("/products")
   }
+
+  gotoNewProduct() {
+    this.currentRoute = "new-product";
+    this.router.navigateByUrl("/new-product")
+  }
+
+  actions : Array<any> = [
+    {title: "Home", "route" : "/home", icon :  "house"},
+    {title: "Products", "route" : "/products", icon :  "search"},
+    {title: "New Product", "route" : "/new-product", icon :  "plus  "}
+  ]
+
+  currentAction: any;
+
+  setcurrentAction(action: any) {
+    this.currentAction = action;
+  }
 }

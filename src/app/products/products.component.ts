@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {HttpClient} from "@angular/common/http";
 
 @Component({
   selector: 'app-products',
@@ -7,22 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductsComponent implements OnInit{
 
-  public products : any;
+  products : Array<any> = [];
   public keyword: String="";
-  
-  constructor() {
 
-    }
+  constructor(private  http:HttpClient) {
+  }
 
     ngOnInit(): void {
-        this.products =  [
-          {"id": 1, "name": "smartphone", "price" :3000},
-          {"id": 2, "name": "LAPTOP", "price" :10000},
-          {"id": 3, "name": "Mouse", "price" :250},
-          {"id": 4, "name": "Monitor", "price" :3500}
-      
-        ] ; 
-    }
+
+    this.http.get<Array<any>>("http://localhost:8089/products")
+      .subscribe({
+        next: data => {
+          this.products =data
+          },
+        error : err => {
+          console.log(err)
+        }
+      })
+  }
 
     deleteProduct(p : any) {
       let index = this.products.indexOf(p);
@@ -44,4 +47,7 @@ export class ProductsComponent implements OnInit{
     }
 
 
+  handleCheckProduct(products: any) {
+    products.checked = !products.checked;
+  }
 }

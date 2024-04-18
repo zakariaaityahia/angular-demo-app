@@ -8,18 +8,26 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th>ID</th>
                         <th>name</th>
                         <th>price</th>
+                        <th>Checked</th>
+
                     </tr>
-                </thead>    
+                </thead>
                 <tbody *ngIf="products">
-                    <tr *ngFor="let p of products">
-                        <td>{{p.id}}</td>
-                        <td>{{p.name}}</td>
-                        <td>{{p.price}}</td>
-                        <td>
-                            <button (click)="deleteProduct(p)" class="btn btn-danger">Delete</button>
+                    <tr *ngFor="let product of products">
+                        <td>{{product.name}}</td>
+                        <td>{{product.price}}</td>
+                      <td>
+                        <button (click)="handleCheckProduct(product)"
+                                class="btn btn-outline-success">
+                          <i [class]="product.checked ? 'bi bi-check':'bi bi-circle'"></i>
+                        </button>
+                      </td>
+                      <td>
+                            <button (click)="deleteProduct(product)" class="btn btn-danger">
+                              delete
+                            </button>
                         </td>
                     </tr>
                 </tbody>

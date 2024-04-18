@@ -1,0 +1,13 @@
+{
+  "products" : [
+    {"id": 1, "name": "smartphone", "price" :3000, "checked": false },
+    {"id": 2, "name": "LAPTOP", "price" :10000, "checked": false},
+    {"id": 3, "name": "Mouse", "price" :250, "checked": true},
+    {"id": 4, "name": "Monitor", "price" :3500, "checked": false},
+    {"id": 5, "name": "Headphones", "price": 1500, "checked": true},
+    {"id": 6, "name": "Tablet", "price": 4000, "checked": false},
+    {"id": 7, "name": "Keyboard", "price": 800, "checked": true},
+    {"id": 8, "name": "Printer", "price": 2000, "checked": false},
+    {"id": 9, "name": "External Hard Drive", "price": 3000, "checked": true}
+  ]
+}
