@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
+import {ProductService} from "../services/product.service";
+import {Product} from "../model/product.model";
 
 @Component({
   selector: 'app-products',
@@ -8,15 +10,19 @@ import {HttpClient} from "@angular/common/http";
 })
 export class ProductsComponent implements OnInit{
 
-  products : Array<any> = [];
+  products : Array<Product> = [];
   public keyword: String="";
 
-  constructor(private  http:HttpClient) {
+  constructor(private productService: ProductService) {
   }
 
     ngOnInit(): void {
+      this.getProducts();
+  }
 
-    this.http.get<Array<any>>("http://localhost:8089/products")
+
+  getProducts() {
+    this.productService.getProduct()
       .subscribe({
         next: data => {
           this.products =data
@@ -47,7 +53,32 @@ export class ProductsComponent implements OnInit{
     }
 
 
-  handleCheckProduct(products: any) {
-    products.checked = !products.checked;
+  handleCheckProduct(products: Product) {
+    this.productService.checkProduct(products).subscribe({
+      next: updatedProduct => {
+        // this.products.map(p => {
+        //   if(p.id == products.id) {
+        //     return updatedProduct;
+        //   } else return p;
+        // })
+        products.checked = !products.checked;
+        //this.getProducts();
+      }
+     })
+
+
+
+
+
+  }
+
+  handleDelete(product: Product) {
+    if (confirm("Are you sure ?"))
+    this.productService.deleteProduct(product).subscribe({
+      next: value => {
+        //this.getProducts();
+        this.products= this.products.filter(p=>p.id!=product.id);
+      }
+    })
   }
 }
