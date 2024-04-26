@@ -1,12 +1,6 @@
 {
   "products": [
     {
-      "id": 1,
-      "name": "smartphone",
-      "price": 3000,
-      "checked": false
-    },
-    {
       "id": 2,
       "name": "LAPTOP",
       "price": 10000,
@@ -53,6 +47,18 @@
       "name": "External Hard Drive",
       "price": 3000,
       "checked": true
+    },
+    {
+      "name": "smart",
+      "price": "2112",
+      "checked": true,
+      "id": 10
+    },
+    {
+      "name": "smart",
+      "price": "2112",
+      "checked": true,
+      "id": 11
     }
   ]
 }

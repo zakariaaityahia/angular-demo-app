@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
+import {observable, Observable} from "rxjs";
 import {Product} from "../model/product.model";
 
 @Injectable({
@@ -10,8 +10,8 @@ export class ProductService {
 
   constructor(private http: HttpClient) { }
 
-  public getProduct() : Observable<Array<Product>> {
-    return this.http.get<Array<Product>>("http://localhost:8089/products")
+  public getProduct(page: number = 1, size=4)  {
+    return this.http.get(`http://localhost:8089/products?_page=${page}&_limit=${size} `, {observe: 'response'})
   }
 
   public checkProduct(product: Product) : Observable<any> {
@@ -23,4 +23,8 @@ export class ProductService {
     return this.http.delete<any>(`http://localhost:8089/products/${product.id}`)
   }
 
+  saveProduct(product: Product):Observable<Product> {
+     return this.http.post<Product>(`http://localhost:8089/products`,
+      product)
+  }
 }
