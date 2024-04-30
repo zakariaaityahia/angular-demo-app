@@ -2,21 +2,21 @@
   "products": [
     {
       "id": 2,
-      "name": "LAPTOP",
+      "name": "Asus tuf f15",
       "price": 10000,
       "checked": true
     },
     {
       "id": 3,
-      "name": "Mouse",
+      "name": "Razer Deathleader",
       "price": 250,
-      "checked": true
+      "checked": false
     },
     {
       "id": 4,
-      "name": "Monitor",
+      "name": "ASUS Rog f17",
       "price": 3500,
-      "checked": false
+      "checked": true
     },
     {
       "id": 5,
@@ -53,12 +53,6 @@
       "price": "2112",
       "checked": true,
       "id": 10
-    },
-    {
-      "name": "smart",
-      "price": "2112",
-      "checked": true,
-      "id": 11
     }
   ]
 }

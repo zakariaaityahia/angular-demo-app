@@ -9,6 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NewProductComponent } from './new-product/new-product.component';
 import {HttpClientModule} from "@angular/common/http";
 import {ProductService} from "./services/product.service";
+import { EditProductComponent } from './edit-product/edit-product.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import {ProductService} from "./services/product.service";
     AppComponent,
     HomeComponent,
     ProductsComponent,
-    NewProductComponent
+    NewProductComponent,
+    EditProductComponent
   ],
   imports: [
     BrowserModule,
